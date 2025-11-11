@@ -1,10 +1,23 @@
 describe("Home Page", () => {
   it("renders key elements", () => {
     cy.visit("/");
-    cy.contains("To get started, edit the page.tsx file.").should("exist");
-    cy.contains("Shadcn Components").should("exist");
-    cy.contains("Button, Input, Card, Badge").should("exist");
+
+    // Heading and intro text
+    cy.contains("Trang Home đơn giản").should("exist");
+    cy.contains("Demo các components: Button, Input, Card, Badge.").should("exist");
+
+    // Card titles
+    cy.contains("Liên hệ").should("exist");
+    cy.contains("Trạng thái").should("exist");
+
+    // Input and button
+    cy.get('input[placeholder="you@domain.com"]').should("exist");
+    cy.contains("Gửi").should("exist");
+
+    // Badges and buttons
     cy.contains("Default").should("exist");
     cy.contains("Success").should("exist");
+    cy.contains("Outline").should("exist");
+    cy.contains("Secondary").should("exist");
   });
 });
