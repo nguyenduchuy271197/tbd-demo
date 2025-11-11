@@ -1,12 +1,14 @@
 import { describe, it, expect, vi } from "vitest";
 import { render, screen } from "@testing-library/react";
 import Home from "./page";
+import type { ImgHTMLAttributes } from "react";
 
-// Mock next/image to a regular img for JSDOM
+// Mock next/image to a regular img for JSDOM with proper typing
 vi.mock("next/image", () => ({
-  default: (props: any) => {
+  default: (props: ImgHTMLAttributes<HTMLImageElement>) => {
+    const { alt = "", ...rest } = props;
     // eslint-disable-next-line @next/next/no-img-element
-    return <img {...props} />;
+    return <img alt={alt} {...rest} />;
   },
 }));
 
