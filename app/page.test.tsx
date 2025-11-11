@@ -15,12 +15,18 @@ vi.mock("next/image", () => ({
 describe("Home page", () => {
   it("renders simplified heading and components", () => {
     render(<Home />);
-    // Heading
-    expect(screen.getByText(/Trang Home đơn giản/i)).toBeInTheDocument();
+    // Unicode-safe text matcher using NFC normalization
+    const hasText = (text: string) => (content: string) =>
+      content.normalize("NFC").includes(text.normalize("NFC"));
 
-    // Card titles
-    expect(screen.getByText(/Liên hệ/i)).toBeInTheDocument();
-    expect(screen.getByText(/Trạng thái/i)).toBeInTheDocument();
+    // Heading by role then check text content
+    const heading = screen.getByRole("heading", { level: 1 });
+    expect(heading).toBeInTheDocument();
+    expect(heading).toHaveTextContent(/Trang Home đơn giản/i);
+
+    // Card titles (Unicode-safe)
+    expect(screen.getByText(hasText("Liên hệ"))).toBeInTheDocument();
+    expect(screen.getByText(hasText("Trạng thái"))).toBeInTheDocument();
 
     // Input and button
     expect(screen.getByPlaceholderText(/you@domain\.com/i)).toBeInTheDocument();

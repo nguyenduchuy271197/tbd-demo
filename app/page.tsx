@@ -8,7 +8,7 @@ export default function Home() {
     <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
       <main className="w-full max-w-3xl p-8">
         <header className="mb-8 text-center sm:text-left">
-          <h1 className="text-3xl font-bold text-black dark:text-zinc-50">Home</h1>
+          <h1 className="text-3xl font-bold text-black dark:text-zinc-50">Trang Home đơn giản</h1>
           <p className="mt-2 text-zinc-600 dark:text-zinc-400">Demo các components: Button, Input, Card, Badge.</p>
         </header>
 
