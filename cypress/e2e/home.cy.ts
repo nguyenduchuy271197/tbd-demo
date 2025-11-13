@@ -19,5 +19,9 @@ describe("Home Page", () => {
     cy.contains("Success").should("exist");
     cy.contains("Outline").should("exist");
     cy.contains("Secondary").should("exist");
+
+    // Alert sample
+    cy.contains("Thành công").should("exist");
+    cy.contains("Yêu cầu đã được xử lý.").should("exist");
   });
 });

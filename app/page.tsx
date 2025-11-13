@@ -2,6 +2,7 @@ import { Button } from "../components/ui/button";
 import { Input } from "../components/ui/input";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "../components/ui/card";
 import { Badge } from "../components/ui/badge";
+import { Alert, AlertTitle, AlertDescription } from "../components/ui/alert";
 
 export default function Home() {
   return (
@@ -48,6 +49,12 @@ export default function Home() {
               <p className="text-sm text-zinc-600 dark:text-zinc-400">Sử dụng components để xây dựng UI nhanh.</p>
             </CardFooter>
           </Card>
+
+          {/* Small sample Alert */}
+          <Alert variant="success">
+            <AlertTitle>Thành công</AlertTitle>
+            <AlertDescription>Yêu cầu đã được xử lý.</AlertDescription>
+          </Alert>
         </section>
       </main>
     </div>

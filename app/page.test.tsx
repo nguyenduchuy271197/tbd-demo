@@ -28,6 +28,10 @@ describe("Home page", () => {
     expect(screen.getByText(hasText("Liên hệ"))).toBeInTheDocument();
     expect(screen.getByText(hasText("Trạng thái"))).toBeInTheDocument();
 
+    // Alert sample
+    expect(screen.getByText(/Thành công/i)).toBeInTheDocument();
+    expect(screen.getByText(/Yêu cầu đã được xử lý\./i)).toBeInTheDocument();
+
     // Input and button
     expect(screen.getByPlaceholderText(/you@domain\.com/i)).toBeInTheDocument();
     expect(screen.getByRole("button", { name: /Gửi/i })).toBeInTheDocument();
